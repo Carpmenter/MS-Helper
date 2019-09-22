@@ -30,7 +30,10 @@
         </Menu>
         <Label Content="Mailbox" HorizontalAlignment="Left" Height="Auto"  Grid.Row="1" VerticalAlignment="Top" Margin="105,49,0,0"/>
         <TextBox x:Name="mbxInput" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" Margin="10,57,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="244"/>
-        <Button x:Name="mbxSearch" Content="Search" Grid.Column="2" HorizontalAlignment="Left" Margin="103,60,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="txtResults" HorizontalAlignment="Left" Height="245" Margin="105,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="601" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Button x:Name="mvReqButton" Content="Move Request" HorizontalAlignment="Left" Margin="105,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="125"/>
+        <Button Content="Remove User" HorizontalAlignment="Left" Margin="53,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="125" Grid.Column="2"/>
+        <Button Content="Resume User" HorizontalAlignment="Left" Margin="164,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="125" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="mbxButton" Content="Get Mailbox" HorizontalAlignment="Left" Margin="0,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="125" Grid.Column="1" RenderTransformOrigin="-0.056,0.45"/>
     </Grid>
 </Window>

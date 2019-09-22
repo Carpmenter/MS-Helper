@@ -12,13 +12,13 @@ Function Connect-Tenant {
 Function Check-MoveRequest {
     Param($Mailbox)
 
-    Get-MoveRequest $Mailbox | Get-MoveRequestStatistics | fl | Out-String -Stream
+    Get-MoveRequest $Mailbox | Get-MoveRequestStatistics | fl DisplayName, Status, StatusDetail, PercentComplete | Out-String
 }
 
 Function Check-Mailbox {
     Param($Mailbox)
 
-    Get-Mailbox $Mailbox | fl
+    Get-Mailbox $Mailbox | fl Name, Archive*, Database | Out-String
 }
 
 
@@ -54,13 +54,26 @@ $var_connectTenant.Add_Click( {
     Connect-Tenant
 })
 
-$var_mbxSearch.Add_Click( {
-    #Clear textbox
-    #$var_mbxInput.Text = ""
-        if ($result = Check-MoveRequest -Mailbox $var_mbxInput.Text) {
-            $var_txtResults.Text = "$($result | Select-String "PercentComplete")`n"
-            $var_txtResults.Text = $var_txtResults.Text + "$($result | Select-String "DisplayName")`n"
-        }
+$var_mvReqButton.Add_Click( {
+    #Clear Output
+    $var_txtResults.Text = ""
+
+    if ($result = Check-MoveRequest -Mailbox $var_mbxInput.Text) {
+        $var_txtResults.Text = "$($result)`n"
+    } else {
+        $var_txtResults.Text = "The operation couldn't be performed because object couldn't be found!"
+    }
+})
+
+$var_mbxButton.Add_Click( {
+    #Clear Output
+    $var_txtResults.Text = ""
+
+    if ($result = Check-Mailbox -Mailbox $var_mbxInput.Text) {
+        $var_txtResults.Text = "$($result)`n"
+    } else {
+        $var_txtResults.Text = "The operation couldn't be performed because object couldn't be found!"
+    }
 })
 
 
