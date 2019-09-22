@@ -26,11 +26,11 @@
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
-            <Label Content="Connect" RenderTransformOrigin="0.605,3.923"/>
+            <Button x:Name="connectTenant" Content="Connect" RenderTransformOrigin="0.605,3.923"/>
         </Menu>
         <Label Content="Mailbox" HorizontalAlignment="Left" Height="Auto"  Grid.Row="1" VerticalAlignment="Top" Margin="105,49,0,0"/>
-        <TextBox x:Name="mbxInput" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" Margin="79,57,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="mbxInput" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" Margin="10,57,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="244"/>
         <Button x:Name="mbxSearch" Content="Search" Grid.Column="2" HorizontalAlignment="Left" Margin="103,60,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="txtResults" Grid.Column="1" HorizontalAlignment="Left" Height="110" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="244"/>
+        <TextBox x:Name="txtResults" HorizontalAlignment="Left" Height="245" Margin="105,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="601" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
     </Grid>
 </Window>

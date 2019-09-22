@@ -12,15 +12,13 @@ Function Connect-Tenant {
 Function Check-MoveRequest {
     Param($Mailbox)
 
-    Get-MoveRequest $Mailbox 
-
+    Get-MoveRequest $Mailbox | Get-MoveRequestStatistics | fl | Out-String -Stream
 }
 
 Function Check-Mailbox {
     Param($Mailbox)
 
     Get-Mailbox $Mailbox | fl
-
 }
 
 
@@ -50,11 +48,18 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
     }
 }
 
+Get-Variable var_*
+
+$var_connectTenant.Add_Click( {
+    Connect-Tenant
+})
+
 $var_mbxSearch.Add_Click( {
     #Clear textbox
     #$var_mbxInput.Text = ""
         if ($result = Check-MoveRequest -Mailbox $var_mbxInput.Text) {
-            $var_txtResults.Text = $result
+            $var_txtResults.Text = "$($result | Select-String "PercentComplete")`n"
+            $var_txtResults.Text = $var_txtResults.Text + "$($result | Select-String "DisplayName")`n"
         }
 })
 
